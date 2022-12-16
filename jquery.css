@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: royalblue;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+}
+
+h1{
+    font-size: 40px;
+    text-align: center;
+    margin-top: 15px;
+}
+h2,h3{
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+textarea{
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 2px;
+}
+table {
+    text-align: center;
+}
+ul{
+    padding-left: 15px;
+}
+table,
+th,
+td {
+    border: 1px solid white;
+}
+
+.Actividad {
+    background-color: cornflowerblue;
+    border: 3px ridge white;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Botones {
+    background-color: cornflowerblue;
+    border: 3px ridge white;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.Actividad2 {
+    display: none;
+    background-color: cornflowerblue;
+    border: 3px ridge white;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px;
+}
+
+.Boton{
+    background-color: royalblue;
+    color: white;
+    border-color: white;
+    border-width: 1px;
+    border-radius: 3px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+    height: 25px;
+}

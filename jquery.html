@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery</title>
+
+    <link rel="stylesheet" href="jquery.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("#Agregar").click(function () {
+                let P1 = "<td> <input type='checkbox' id='checkbox' name='estado' value='estado1'> </td>";
+                let P2 = "<td>" + $("#Dato1").val() + "</td>";
+                let P3 = "<td>" + $("#Dato2").val() + "</td>";
+                let P4 = "<td>" + $("#Dato3").val() + "</td>";
+                let Fila = "<tr>" + P1 + P2 + P3 + P4 + "</tr>";
+                $("tbody").append(Fila);
+                $("#Dato1").val("");
+                $("#Dato2").val("");
+                $("#Dato3").val("");
+
+            });
+            $("#Eliminar").click(function () {
+                $("#checkbox:checked").each(
+                    function () {
+                        $(this).parent().parent().remove();
+                    }
+                );
+            });
+
+            
+            $("#Iniciar_Sesion").click(function () {
+                $(".Formulario2").hide();
+                $("#Iniciar_Sesion").hide();
+                $("#Cerrar_Sesion").show();
+                alert("Inicio de sesion Correctamente");
+            });
+            $("#Cerrar_Sesion").dblclick(function () {
+                $(".Formulario2").show();
+                $("#Cerrar_Sesion").hide();
+                $("#Iniciar_Sesion").show();
+                $("#email").val("");
+                $("#password").val("");
+                alert("Ha Cerrado Sesion Correctamente");
+            });
+
+            $("#Cambiar").click(function () {
+                $(".Boton").animate({
+                    width: '400px',
+                    height: '35px',
+                    borderWidth: "3px",
+                    opacity: '0.5'
+                });
+            });
+            $("#Reestablecer").click(function () {
+                $(".Boton").animate({
+                    width: '200px',
+                    height: '25px',
+                    borderWidth: "1px",
+                    opacity: '1'
+                });
+            });
+
+            $("#Ejemplo").click(function () {
+                $(".Actividad2").slideToggle("slow");
+            });
+
+            var num1 = 3; var num2 = 0, suma, suma2;
+            suma = num1 + num2;
+            suma2 = num1 + num2;
+            $("#btn1").click(function Multiplo_Ascendente() {
+                let M = "<b>" + suma + ",<b>";
+                $("#Elemento").append(M);
+                suma += num1;
+            });
+            //Agrega elementos dentro del bloque , que en este caso seria el p
+
+            $("#btn2").click(function Multiplo_Descendente() {
+                let M2 = "<b>," + suma2 + "<b>";
+                $("#Elemento").after(M2);
+                suma2 += num1;
+            });
+            //aca agrega elementos despues del elementro bloque p , pero al agregar siempre parte del primero y el agregado lo
+            //deja al ultimo
+        });
+    </script>
+</head>
+
+<body>
+    <h1><b>Ejemplos de Jquery</b></h1>
+    <div class="Actividad">
+        <div class="Formulario">
+            <h2 id="titulo">Ejemplos 1</h2>
+            <div>
+                <textarea id="Dato1" name="Nombre" placeholder=" Nombre..." cols="40" rows="2"></textarea>
+                <textarea id="Dato2" name="Dato2" placeholder=" Correo electronico..." cols="40" rows="2"></textarea>
+                <textarea id="Dato3" name="Dato3" placeholder=" Comentario..." cols="40" rows="2"></textarea>
+            </div>
+        </div>
+        <button class="Boton" id="Agregar">Agregar</button>
+        <table>
+            <thead>
+                <th>Seleccion</th>
+                <th>Nombre</th>
+                <th>Correo electronico</th>
+                <th>Comentario</th>
+            </thead>
+
+            <tbody>
+            </tbody>
+        </table>
+        <button class="Boton" id="Eliminar">Eliminar</button>
+    </div>
+    <div class="Botones">
+        <button class="Boton" id="Ejemplo">Mostrar mas Ejemplos</button>
+        <button class="Boton" id="Cambiar">Cambiar Boton</button>
+        <button class="Boton" id="Reestablecer">Reestablecer Boton</button>
+    </div>
+    <div class="Actividad2">
+        <h2 id="titulo2">Ejemplos 2</h2>
+        <div class="Formulario2">
+            <h3>Inicio de Sesion y Cerrar Sesion</h3>
+            <p>
+                Ingrese Correo Electronico:
+                <input id="email" type="email" name="correo" placeholder="Correo">
+            </p>
+            <p>
+                Ingrese Contraseña:
+                <input id="password" type="password" name="contrasena" placeholder="Contrasena">
+            </p>
+        </div>
+        <button id="Iniciar_Sesion" class="Boton">Iniciar Sesion</button>
+        <button id="Cerrar_Sesion" class="Boton" style="display:none;">Cerrar Sesion</button>
+    </div>
+    <div class="Actividad2">
+        <h2 id="titulo3">Ejemplos 3</h2>
+        <p>
+            El primer Boton Muesta los Multiplos de forma Ascendente y el Segundo Boton de forma Descendente.
+        </p>
+        <p id="Elemento">
+            Los Multiplos de 3 son:
+        </p>
+        <div class="Opciones">
+            <button class="Boton" id="btn1">Forma Ascendente</button>
+            <button class="Boton" id="btn2">Forma Descendente</button>
+        </div>
+    </div>
+</body>
+
+</html>

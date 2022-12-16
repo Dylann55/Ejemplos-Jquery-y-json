@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+h1{
+    font-size: 40px;
+    text-align: center;
+    margin-top: 15px;
+}
+body{
+    background-color: royalblue;
+    display: flex;
+    justify-content: center;
+}
+table{
+    color: white;
+    width: 450px;
+}
+ul,ol{
+    color: white;
+    width: 450px;
+    text-align: left;
+    margin-left: 35%;
+}
+
+table,
+th,
+td {
+    border: 1px solid white;
+}
+.Principal{
+    background-color: cornflowerblue;
+    text-align: center;
+    border: 3px ridge white;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 15px;
+
+    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.Botones{
+    background-color: royalblue;
+    color: white;
+    border-color: white;;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    width: 100px;
+}

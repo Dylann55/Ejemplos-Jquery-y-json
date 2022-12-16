@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargajson</title>
+
+    <link rel="stylesheet" href="cargajson.css">
+
+    <script>
+        function seach() {
+            let Valor = document.getElementById("selectorbusqueda").value;
+            if (Valor != "") {
+                let url = Valor + ".json";
+                loadDoc(url, Valor);
+            }
+        };
+        function loadDoc(url, index) {
+            var xhttp;
+            xhttp = new XMLHttpRequest();
+            xhttp.open("GET", url, true);
+            xhttp.send();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    if (index == "Json1") {
+                        Json1(this);
+                    }
+                    else if (index == "Json2") {
+                        Json2(this);
+                    }
+                    else if (index == "Json3") {
+                        Json3(this);
+                    }
+                }
+            };
+        }
+        function Json1(xhttp) {
+            let datos = JSON.parse(xhttp.responseText);
+            let table = document.querySelector("#Tabla");
+            let thead = "<thead> <th>Nombre</th> <th>Precio</th> </thead>";
+            let tbody = "<tbody>";
+            for (let item of datos) {
+                let P1 = "<td>" + item.nombre + "</td>";
+                let P2 = "<td>" + item.precio + "</td>";
+                tbody += " <tr>" + P1 + P2 + "</tr> ";
+            }
+            tbody += "</tbody>";
+            table.innerHTML = "<table>" + thead + tbody + "</table>";
+        }
+        function Json2(xhttp) {
+            let datos = JSON.parse(xhttp.responseText);
+            let table = document.querySelector("#Tabla");
+            let body = "";
+            for (i in datos.deportes) {
+                let P1 = "<li>" + datos.deportes[i] + "</li>";
+                body += P1;
+            }
+            table.innerHTML = "<ul type='square'>" + body + "</ul>";
+        }
+        function Json3(xhttp) {
+            let datos = JSON.parse(xhttp.responseText);
+            let table = document.querySelector("#Tabla");
+            let body = "";
+
+            let numero = 0;
+            for (i in datos.carreras) {
+                let P1 = "<li>" + datos.carreras[i] + "</li>";
+                body += P1;
+            }
+            table.innerHTML = "<ol type='1' start='1'>" + body + "</ol>";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="Principal">
+        <form action="#">
+            <select class="selectorbusqueda" name="selectorbusqueda" id="selectorbusqueda">
+                <option value="">Selecciona una opcion</option>
+                <option value="Json1">Servicio medico estudiantil</option>
+                <option value="Json2">Deportes seleccion UTA</option>
+                <option value="Json3">Carreras mejor pagadas</option>
+            </select>
+            <button class="Botones" type="button" onclick="seach()">Ir
+            </button>
+        </form>
+        <div id="Tabla">
+        </div>
+    </div>
+</body>
+
+</html>

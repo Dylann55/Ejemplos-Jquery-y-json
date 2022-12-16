@@ -1,0 +1,14 @@
+[
+    {
+        "nombre": "Kinesiologia",
+        "precio": 10000
+    },
+    {
+        "nombre": "Odontologia",
+        "precio": 10000
+    },
+    {
+        "nombre": "Oftalmologica",
+        "precio": 7000
+    }
+]
